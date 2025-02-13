@@ -4,19 +4,22 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const APP_TITLE = "Gemini";
+
+const ICON_PATH = join(__dirname, "assets", "gemini.icns");
+
 const DEFAULT_WINDOW_STATE = {
   width: 1920,
   height: 1080,
 };
 
-const ICON_PATH = join(__dirname, "assets", "gemini.icns");
-
 let win;
 
 function createWindow() {
   win = new BrowserWindow({
-    ...DEFAULT_WINDOW_STATE,
+    title: APP_TITLE,
     icon: ICON_PATH,
+    ...DEFAULT_WINDOW_STATE,
     webPreferences: {
       nodeIntegration: false, // Set to false for security reasons
     },
@@ -33,10 +36,10 @@ function createWindow() {
 app.whenReady().then(createWindow);
 
 app.on("activate", () => {
-  if (win === null) {
-    createWindow();
-  } else {
+  if (win) {
     win.show();
+  } else {
+    createWindow();
   }
 });
 

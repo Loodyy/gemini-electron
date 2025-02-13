@@ -2,6 +2,10 @@
 
 Gemini Electron is an app that ported Gemini web with Electron.
 
+## Screenshot
+
+![Gemini Electron Screenshot](assets/screenshot.png)
+
 ## Getting Started
 
 To run this project locally, follow these steps.

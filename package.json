@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Gemini proting app with Electron",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "start": "electron ."
   },

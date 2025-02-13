@@ -8,7 +8,7 @@
     "start": "electron ."
   },
   "author": "Loody",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^34.1.1",
     "electron-packager": "^17.1.2"

@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from "electron";
+import { globalShortcut } from "electron/main";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -33,7 +34,27 @@ function createWindow() {
   });
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+
+  const NEW_CHAT_COMMAND = "Cmd+N";
+  const NEW_CHAT_BUTTON = `document.querySelector('button.expandable-button[data-test-id=\"button\"]')`;
+
+  globalShortcut.register(NEW_CHAT_COMMAND, () => {
+    if (win) {
+      win.webContents.executeJavaScript(`${NEW_CHAT_BUTTON}?.click()`);
+    }
+  });
+
+  const MENU_TOGGLE_COMMAND = "Ctrl+S";
+  const MENU_TOGGLE_BUTTON = `document.querySelector('button[data-test-id=\"side-nav-menu-button\"]')`;
+
+  globalShortcut.register(MENU_TOGGLE_COMMAND, () => {
+    if (win) {
+      win.webContents.executeJavaScript(`${MENU_TOGGLE_BUTTON}?.click()`);
+    }
+  });
+});
 
 app.on("activate", () => {
   if (win) {
@@ -50,5 +71,7 @@ app.on("window-all-closed", () => {
 });
 
 app.on("before-quit", () => {
+  globalShortcut.unregisterAll();
+
   app.quit();
 });

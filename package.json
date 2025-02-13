@@ -1,0 +1,15 @@
+{
+  "name": "gemini-electron",
+  "version": "1.0.0",
+  "description": "Gemini proting app with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Loody",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^34.1.1",
+    "electron-packager": "^17.1.2"
+  }
+}

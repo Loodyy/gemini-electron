@@ -42,3 +42,8 @@ To run this project locally, follow these steps.
    ```bash
    mv build/Gemini-darwin-x64/Gemini.app /Applications
    ```
+
+## Keyboard Shortcuts
+
+- **Cmd + N**: Open a new chat
+- **Ctrl + S**: Toggle the side menu
